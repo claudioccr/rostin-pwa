@@ -1,15 +1,35 @@
 {
   "name": "Rostin: El Guardián de los Elementos",
   "short_name": "Rostin",
-  "description": "Juego RPG de aventura basado en elementos mágicos.",
+  "description": "Juego RPG donde ayudas a Rostin a recuperar las reliquias mágicas y derrotar a Malakar.",
+  
   "start_url": "/",
   "scope": "/",
+
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#050505",
+
+  "background_color": "#000000",
   "theme_color": "#4CAF50",
+
   "icons": [
-    { "src": "/img/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
