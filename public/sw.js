@@ -5,74 +5,52 @@
 // Nombre base del caché (no requiere cambiar versión a mano)
 const CACHE_NAME = "pwa-cache";
 
-// Archivos base que se deben almacenar
-const CORE_ASSETS = [
-  "/",
-  "/index.html",
-  "/manifest.json"
+const urlsToCache = [
+  '/',
+  '/index.html',
+  // '/styles.css',  <-- Descomenta y añade tus archivos CSS
+  // '/script.js',   <-- Descomenta y añade tus archivos JS
+  // '/icon.png'
 ];
 
-// ------------------------------------------------------------
-// INSTALACIÓN: Guarda recursos iniciales
-// ------------------------------------------------------------
-self.addEventListener("install", event => {
-  console.log("[SW] Instalando...");
-
+// Evento de instalación: Se dispara cuando el navegador detecta el Service Worker
+self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(CORE_ASSETS);
-    })
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        console.log('Archivos cacheados correctamente');
+        return cache.addAll(urlsToCache);
+      })
   );
-
-  // Fuerza instalación inmediata
-  self.skipWaiting();
 });
 
-// ------------------------------------------------------------
-// ACTIVACIÓN: Limpia cachés viejos automáticamente
-// ------------------------------------------------------------
-self.addEventListener("activate", event => {
-  console.log("[SW] Activado. Limpiando cachés antiguas...");
-
+// Evento de activación: Limpia cachés antiguas si actualizas la versión
+self.addEventListener('activate', event => {
+  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.map(key => {
-          if (key !== CACHE_NAME) {
-            console.log("[SW] Caché eliminada:", key);
-            return caches.delete(key);
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
           }
         })
-      )
-    )
+      );
+    })
   );
-
-  // Toma control sin recargar
-  self.clients.claim();
 });
 
-// ------------------------------------------------------------
-// FETCH: Estrategia "Network First" con fallback a caché
-//
-// Esto garantiza:
-// ✔ Siempre intenta obtener la versión más nueva del servidor
-// ✔ Si no hay internet, usa la caché sin romper la PWA
-// ------------------------------------------------------------
-self.addEventListener("fetch", event => {
+// Evento Fetch: Intercepta las peticiones. Si el archivo está en caché, lo sirve desde ahí.
+self.addEventListener('fetch', event => {
   event.respondWith(
-    fetch(event.request)
+    caches.match(event.request)
       .then(response => {
-        // Guarda una copia en caché (solo GET)
-        if (event.request.method === "GET") {
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, response.clone());
-          });
+        // Si hay respuesta en caché, la devolvemos
+        if (response) {
+          return response;
         }
-        return response;
-      })
-      .catch(() => {
-        // Si falla la red, intenta usar la caché
-        return caches.match(event.request);
+        // Si no, hacemos la petición a internet
+        return fetch(event.request);
       })
   );
 });
