@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitio Oficial del Juego</title>
+    <link rel="manifest" href="/manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    
+    <nav>
+    <nav>
+    <div class="logo">ROSTIN</div>
+    <div class="nav-right">
+        <button id="btnIniciarSesion" class="btn-nav">Iniciar sesión</button>
+        <button id="btnIrARegistro" class="btn-nav">Registrarse</button>
+    </div>
+</nav>
+</nav>
+
+  </nav>
+
+    </nav>
+
+    <header id="pantallaBienvenida" class="hero">
+      <div class="capa-oscura">
+            <div class="contenido-hero">
+                <h1>Rostin: El Guardián de los Elementos</h1>
+                <p>Únete a Rostin en su misión épica para recuperar 
+                  las cinco reliquias mágicas, derrotar a Malakar y 
+                  restaurar el equilibrio de los reinos. </p>
+            </div>
+      </div>
+    </header>
+
+<section class="seccion-info">
+    <h2>Historia del Juego</h2>
+    <p>
+      En un planeta lejano, seis reinos vivían en paz...
+      Hace tiempo, en un planeta lejano, existían seis reinos viviendo en paz relajante. Estos lugares contenían objetos mágicos - reliquias que otorgaban poder y fuerza increíbles. 
+      Las reliquias estaban resguardadas en el Reino del Copito, custodiadas por Elorien, la guardiana de los elementos durante más de 4000 años.
+      Un día, Malakar, un ser oscuro con cuernos y mirada sombría, atacó el Reino del Copito. En una explosión devastadora, robó las cinco reliquias mágicas y secuestró a Elorien. 
+      Sin su poder, los reinos comenzaron a perder su brillo y equilibrio.
+      Tu Misión como Rostin:
+      Eres Rostin, un joven elfo del planeta Tryter. Debes viajar por los cinco reinos elementales, 
+      recuperar las reliquias mágicas, derrotar a los guardianes (algunos aliados, otros enemigos sádicos), 
+      y finalmente enfrentar a Malakar en el Reino del Caos para rescatar a Elorien y restaurar el equilibrio.
+    </p>
+</section>
+
+
+<section class="seccion-info">
+    <h2>Personajes</h2>
+    <div class="lista-cards">
+        <div class="card">
+            <h3>Rostin</h3>
+            <p>Joven elfo del planeta Tryter, héroe destinado a restaurar el equilibrio</p>
+        </div>
+        <div class="card">
+            <h3>Malakar</h3>
+            <p>Señor del Caos, ser oscuro que robó las reliquias mágicas
+            </p>
+        </div>
+        <div class="card">
+            <h3>Elorien</h3>
+            <p>Guardiana de los elementos durante más de 4000 años</p>
+        </div>
+        <div class="card">
+            <h3>Aqua</h3>
+            <p>Guardiana del Reino Coral, se enamora de Rostin</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="seccion-info">
+    <h2>Los Reinos de Rostin: Viaja a través de reinos elementales únicos, cada uno con sus propios desafíos, 
+      jefes y reliquias mágicas
+    </h2>
+    <ul class="lista-simple">
+        <li>Reino del Copito - Hogar de Elorien, donde hermosas cascadas resuenan. Aquí comienza tu aventura</li>
+        <li>Reino Tree Jungle – Árboles gigantescos que conservan ríos, criaturas y lianas. Primera reliquia</li>
+        <li>Reino Mountain – Reino montañoso con puentes de hielo y rocas imponentes</li>
+        <li>Reino Coral – Paraíso acuático habitado por grandes peces y criaturas mágicas</li>
+        <li>Reino Ardido – Mundo de fuego y lava donde el caos reina. Cada paso es mortal</li>
+    </ul>
+</section>
+
+<section class="seccion-info">
+    <h2>Medallas y Premios</h2>
+    <ul class="lista-simple">
+        <li>Medalla del Valor – Completar el primer nivel.</li>
+        <li>Maestro Elemental – Dominar todas las energías.</li>
+        <li>Cazador de Tesoros – Encontrar todas las reliquias ocultas.</li>
+        <li>Héroe del Reino – Terminar el modo historia.</li>
+    </ul>
+</section>
+
+
+<section class="seccion-info">
+    <h2>Reglas del Juego</h2>
+    <ul class="lista-simple">
+        <li>Rescata las reliquias en el orden correcto.</li>
+        <li>Administra tu energía elemental estratégicamente.</li>
+        <li>Evita los ataques oscuros de Malakar.</li>
+        <li>Ayuda a los NPCs para obtener recompensas.</li>
+        <li>Explora cada nivel para descubrir secretos.</li>
+    </ul>
+</section>
+
+
+<section class="seccion-info">
+    <h2>Descargar App Móvil</h2>
+    <p>
+        Obtén la versión oficial de <strong>Rostin: El Guardián de los Elementos</strong> 
+        para Android. Instala el APK y juega desde tu dispositivo móvil.
+    </p>
+    <a href="/apk/rostin_app.apk" class="btn-descargar" download>
+        Descargar APK (Android)
+    </a>
+    <small style="display:block; margin-top:10px; opacity:0.7;">
+        Versión 1.0 • Compatible con Android 7+
+    </small>
+</section>
+
+
+    <section id="pantallaRegistro" class="seccion-registro" style="display: none;">
+        <div class="container-form">
+            <h2>NUEVO GUERRERO</h2>
+            <form id="miFormulario">
+                <input type="text" placeholder="Nombre de Héroe" required>
+                <input type="email" placeholder="Correo Electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                
+                <div class="botones-form">
+                    <button type="button" id="btnCancelar" class="btn-rojo">Cancelar</button>
+                    <button type="submit" class="btn-verde">Crear Cuenta</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="pantallaLogin" class="seccion-registro" style="display: none;">
+    <div class="container-form">
+        <h2>INGRESAR</h2>
+        <form id="formLogin">
+            <input type="email" placeholder="Correo Electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+
+            <div class="botones-form">
+                <button type="button" id="btnCancelarLogin" class="btn-rojo">Cancelar</button>
+                <button type="submit" class="btn-verde">Entrar</button>
+            </div>
+        </form>
+    </div>
+  </section>
+
+
+    <script type="module" src="/src/main.js"></script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+  </body>
+</html>
